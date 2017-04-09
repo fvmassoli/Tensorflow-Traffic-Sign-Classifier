@@ -107,23 +107,25 @@ My final model consisted of the following layers:
 | Relu		|      									|
 | Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
 | Flatten	      	| input 5x5x16,  outputs 400 				|
-| Fully connected		| inpute 400, output 120       									|
+| Fully connected		| input 400, output 120       									|
 | Relu		|      									|
 | Dropout		| prob = 0.5 (only for training)        									|
-| Fully connected		|   inpute 120, output 84     									|
+| Fully connected		|   input 120, output 84     									|
 | Relu		|        									|
 | Dropout		|  prob = 0.5 (only for training)          									|
-| Fully connected		|      inpute 84, output 43									|
+| Fully connected		|      input 84, output 43									|
 
 I set the dropout probability at 0.5 during the training phase, while it is 0 (i.e. no dropout) during test and validation.
 
 #### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The code for training the model is located in the eigth cell of the ipython notebook. 
+The training pipeline is implemented in the cell number ... .
 
-To train the model, I used an ....
+I considered 12 epochs and a batch size equals to 64. I used the reduce_mean() function to evaluate the loss and the Adam optimizer from the tensorflow library. 
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+The learning rate has an initial value of 0.0005 that decreases of 20% every 4 epochs.
+
+#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
 
@@ -145,7 +147,18 @@ If a well known architecture was chosen:
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
 
-###Test a Model on New Images
+
+
+
+
+
+
+
+
+
+
+
+### Test a Model on New Images
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
