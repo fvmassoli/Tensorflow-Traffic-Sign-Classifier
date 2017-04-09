@@ -33,7 +33,7 @@ Here is a link to my [project code](https://github.com/fvmassoli/fvmassoli-CarND
 
 #### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-In the cells number 2 and 3 I used numpy and pandas to print some infos about the data. Here is a summary:
+In the second and third cell of the notebook I used numpy and pandas to print some infos about the data. Here is a summary:
 
 * The size of training set is 34799
 * The size of test set is 12630
@@ -63,7 +63,7 @@ following [article](http://s3.amazonaws.com/academia.edu.documents/31151276/serm
 As we can see from the previous figure, there isn't a uniform population among the 43 sign classes. In order to avoid
 biases towards more populated classes we need to augment the data (see next section). 
 
-Before that I preprocessed the data by normalizing and greyscaling them. This helps the training phase since, for example, 
+Before data augmentation I preprocessed the data by normalizing and greyscaling them. This helps the training phase since, for example, 
 our neural net will have to deal with only one color channel instead of three (we are looking for shape features not colored
 ones).
 
@@ -93,7 +93,7 @@ After the splitting, I ended up with the following datasets:
 
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-The code for my final model is located in the cells number ...... 
+The code for my final model is located in the cells number 17, 18 and 19.
 
 My final model consisted of the following layers:
 
@@ -115,23 +115,23 @@ My final model consisted of the following layers:
 | Dropout		|  prob = 0.5 (only for training)          									|
 | Fully connected		|      input 84, output 43									|
 
-I set the dropout probability at 0.5 during the training phase, while it is 0 (i.e. no dropout) during test and validation.
+I set the dropout probability at 0.5 during the training phase, while it is 1 (i.e. no dropout) during test and validation.
 
 #### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The training pipeline is implemented in the cell number ... .
+The training pipeline is implemented in the cells number from 20 to 24.
 
-I considered  epochs and a batch size equals to . I used the reduce_mean() function to evaluate the loss and the Adam optimizer from the tensorflow library. 
+I considered 15 epochs and a batch size equals to 128. I used the reduce_mean() function to evaluate the loss and the Adam optimizer from the tensorflow library. 
 
-The learning rate has an initial value of  that decreases of 20% every 4 epochs.
+The learning rate has an initial value of 0.001 that decreases of 20% every 4 epochs.
 
 #### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the ..... cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the cell 25 of the Ipython notebook.
 
 My final model results were:
-* validation set accuracy of 97.7%
-* test set accuracy of 92%
+* validation set accuracy of ..................
+* test set accuracy of ...................
 
 Using the experience I got from the LeNet lab I used the same model to implement the cnn. I chosed such a model since I 
 had some familiarities with it and also its performace are actually good. Moreover, since I am facing an image recognition
