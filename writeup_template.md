@@ -27,37 +27,50 @@ The goals / steps of this project are the following:
 #### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+Here is a link to my [project code](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/Traffic_Sign_Classifier.ipynb)
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+### Data Set Summary & Exploration
 
-You're reading it! and here is a link to my [project code](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-###Data Set Summary & Exploration
+In the cells number 2 and 3 I used numpy and pandas to print some infos about the data. Here is a summary:
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+* The size of training set is 34799
+* The size of test set is 12630
+* The shape of a traffic sign image is (32, 32, 3)
+* The number of unique classes/labels in the data set is 43
 
-The code for this step is contained in the second code cell of the IPython notebook.  
+#### 2 Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+In cell 5 I implemented a simple method to draw a signal. I use it to print a normal sign image or a preprocessed greyscaled one. Here is an example of traffic sign input image.
 
-* The size of training set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_before_preprocessing.png " ")
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+In the cell number 7 I explored the distribution of the traffic signs among the variuos classes. A summary bar chart is shown
+below. On the x-axis there is id of the sign class while on the y-axis is simply reported the number of entries for each
+class.
 
-The code for this step is contained in the third code cell of the IPython notebook.  
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/sample_distribution.png " ")
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+As we can see from the previous figure, there isn't a uniform population among the 43 sign classes. In order to avoid
+biases towards more populated classes we need to augment the data. 
 
-![alt text][image1]
+Before that I preprocessed the data by normalizing and greyscaling them. This helps the training phase since, for example, 
+our neural net will have to deal with only one color channel instead of three (we are looking for shape features not colored
+ones).
 
-###Design and Test a Model Architecture
+An example of preprocessed data is shown below.
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+![alt text]( " ")
+
+In order to flatten the distribution among the various signal classes, I augmented the data by producing new images by implementing a rotation of the already available pictures. The code is available in the cell number 14. The final image distribution is the following.
+
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/augmented_sample_distribution.png " ")
+
+
+### Design and Test a Model Architecture
+
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained in the fourth code cell of the IPython notebook.
 
@@ -68,6 +81,17 @@ Here is an example of a traffic sign image before and after grayscaling.
 ![alt text][image2]
 
 As a last step, I normalized the image data because ...
+
+
+
+
+
+
+
+
+
+
+
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
