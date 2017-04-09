@@ -88,8 +88,8 @@ The code for splitting the data into training and validation sets is contained i
 To cross validate my model, I randomly split the training data into a training set and validation set. I did this by using the train_test_split() method from the sklearn library.
 After the splitting, I ended up with the following datasets:
 
-* The size of training set is 
-* The size of validation set is 
+* The training set contains 60501 images
+* The validation set contains 25929 images
 
 #### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -99,7 +99,7 @@ My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x1 grey image   							| 
+| Input         		| 32x32x1 (grey image)   							| 
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | Relu		|       									|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
@@ -130,50 +130,53 @@ The learning rate has an initial value of  that decreases of 20% every 4 epochs.
 The code for calculating the accuracy of the model is located in the ..... cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of 
-* validation set accuracy of  
-* test set accuracy of 
+* validation set accuracy of 97.7%
+* test set accuracy of 92%
 
- 
+Using the experience I got from the LeNet lab I used the same model to implement the cnn. I chosed such a model since I 
+had some familiarities with it and also its performace are actually good. Moreover, since I am facing an image recognition
+problem, a cnn is much more efficinet that a fully connected neural net.
 
-
-
-
-
-
-
-
-
-
-
+I did several trials by changing the number convolutional and linear layers as well as by changing the number of epochs, 
+the batch size and the training rate. I noticed that with a lower batch size the cnn accuracy was lower. In particular
+I needed much more epochs in order to reach a good enough accuracy value of the cnn. I got the same
+result by enhancing the learning rate (wihtout updating it) and keeping the same value for the bact size. After all that trials I fixed the hyperparameters value at the ones I reported above.
 
 ### Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/web_images/sign1.jpg " ") ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/web_images/sign2.jpg " ") ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/web_images/sign3.jpg " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/web_images/sign4.jpg " ") ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/web_images/sign5.jpg " ")
 
-The first image might be difficult to classify because ...
+The first image might be difficult to classify because since it another sign on its back that can confuse the neural net about the real shape of the sign.
+
+The second, third and fourth image might be difficult to classify because of the quite uniform background of the image.
+
+The fifth image might be difficult to classify because of its orientation with respect to the front view.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the ..... cell of the Ipython notebook.
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| No entry      		| No entry   									| 
+| Yield    			| Yield										|
+|Right-of-way at the next intersection					| Right-of-way at the next intersection											|
+| Priority road	      		| Priority road					 				|
+| roundabout mandatory			|  End of no passing      							|
 
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. Even though such a number seems to compare favorably to the accuracy on the test set of 92% I would not say any final word on such a result. This is 
+mainly due to two reasons:
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+1) we are not evaluating the error on the acciracy. I will expect a much smaller error on the cnn test than on the 5 new traffic signs;
+
+2) in my opinion, a 5 images dataset is not really statistically relevant when compared with the other used to train and test the cnn.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -183,11 +186,22 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| .296         			| No entry  									| 
+| .132     				| Yield 										|
+| .215					| Right-of-way at the next intersection											|
+| .664	      			| Priority road					 				|
+| .619				    | End of no passing      							|
+
+The following images show the top 5 softmax probabilities for each image
+
+![alt text]( " ") 
+
+![alt text]( " ") 
+
+![alt text]( " ") 
+
+![alt text]( " ") 
+
+![alt text]( " ") 
 
 
-For the second image ... 
