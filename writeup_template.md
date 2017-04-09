@@ -44,7 +44,7 @@ In the cells number 2 and 3 I used numpy and pandas to print some infos about th
 
 In cell 5 I implemented a simple method to draw a signal. I use it to print a normal sign image or a preprocessed greyscaled one. Here is an example of traffic sign input image.
 
-![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_before_preprocessing.png " ")
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_before_preprocessing2.png " ")
 
 In the cell number 7 I explored the distribution of the traffic signs among the variuos classes. A summary bar chart is shown
 below. On the x-axis there is id of the sign class while on the y-axis is simply reported the number of entries for each
@@ -52,85 +52,72 @@ class.
 
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/sample_distribution.png " ")
 
-As we can see from the previous figure, there isn't a uniform population among the 43 sign classes. In order to avoid
-biases towards more populated classes we need to augment the data. 
-
-Before that I preprocessed the data by normalizing and greyscaling them. This helps the training phase since, for example, 
-our neural net will have to deal with only one color channel instead of three (we are looking for shape features not colored
-ones).
-
-An example of preprocessed data is shown below.
-
-![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_after_preprocessing.png " ")
-
-In order to flatten the distribution among the various signal classes, I augmented the data by producing new images by implementing a rotation of the already available pictures. The code is available in the cell number 14. The final image distribution is the following.
-
-![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/augmented_sample_distribution.png " ")
-
 
 ### Design and Test a Model Architecture
 
 #### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+For what concerns the next steps and in the particular data preprocessing and augmentation I have been inspired by the
+following [article](http://s3.amazonaws.com/academia.edu.documents/31151276/sermanet-ijcnn-11.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&Expires=1491659143&Signature=nswY%2BFBhTX6HYB0xlxhQePo2zd0%3D&response-content-disposition=inline%3B%20filename%3DTraffic_Sign_Recognition_with_Multi-Scal.pdf). 
 
-As a first step, I decided to convert the images to grayscale because ...
+As we can see from the previous figure, there isn't a uniform population among the 43 sign classes. In order to avoid
+biases towards more populated classes we need to augment the data (see next section). 
 
-Here is an example of a traffic sign image before and after grayscaling.
+Before that I preprocessed the data by normalizing and greyscaling them. This helps the training phase since, for example, 
+our neural net will have to deal with only one color channel instead of three (we are looking for shape features not colored
+ones).
 
-![alt text][image2]
+The code I used to preprocess the data is in the cells number 9, 10 and 11.
+An example of preprocessed data is shown below.
 
-As a last step, I normalized the image data because ...
-
-
-
-
-
-
-
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_after_preprocessing.png " ")
 
 
+#### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
+In order to flatten the distribution among the various signal classes, I augmented the data by producing new images by implementing a rotation of the already available pictures. The code is available in the cell number 14. The final image distribution is the following.
 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/augmented_sample_distribution.png " ")
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+The following picture shows an example of a newly generated signal image.
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/newly_generated_traffic_sign_image.png " ")
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
+The code for splitting the data into training and validation sets is contained in the cell number 16.
 
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
+To cross validate my model, I randomly split the training data into a training set and validation set. I did this by using the train_test_split() method from the sklearn library.
+After the splitting, I ended up with the following datasets:
 
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
+* The size of training set is 
+* The size of validation set is 
 
-Here is an example of an original image and an augmented image:
+#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-The code for my final model is located in the seventh cell of the ipython notebook. 
+The code for my final model is located in the cells number ...... 
 
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
- 
+| Input         		| 32x32x1 grey image   							| 
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
+| Relu		|       									|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 10x10x16 	|
+| Relu		|      									|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
+| Flatten	      	| input 5x5x16,  outputs 400 				|
+| Fully connected		| inpute 400, output 120       									|
+| Relu		|      									|
+| Dropout		| prob = 0.5 (only for training)        									|
+| Fully connected		|   inpute 120, output 84     									|
+| Relu		|        									|
+| Dropout		|  prob = 0.5 (only for training)          									|
+| Fully connected		|      inpute 84, output 43									|
 
+I set the dropout probability at 0.5 during the training phase, while it is 0 (i.e. no dropout) during test and validation.
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 The code for training the model is located in the eigth cell of the ipython notebook. 
 
