@@ -195,14 +195,14 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 The following images show the top 5 softmax probabilities for each image
 
-![alt text]( " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_1.png " ") 
 
-![alt text]( " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_2.png " ") 
 
-![alt text]( " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_3.png " ") 
 
-![alt text]( " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_4.png " ") 
 
-![alt text]( " ") 
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_5.png " ") 
 
 
