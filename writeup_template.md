@@ -61,7 +61,7 @@ ones).
 
 An example of preprocessed data is shown below.
 
-![alt text]( " ")
+![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/signal_after_preprocessing.png " ")
 
 In order to flatten the distribution among the various signal classes, I augmented the data by producing new images by implementing a rotation of the already available pictures. The code is available in the cell number 14. The final image distribution is the following.
 
