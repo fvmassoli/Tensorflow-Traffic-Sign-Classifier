@@ -130,9 +130,12 @@ The learning rate has an initial value of 0.001 that decreases of 20% every 4 ep
 The code for calculating the accuracy of the model is located in the cell 25 of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ..................
-* validation set accuracy of ..................
-* test set accuracy of ...................
+* training set accuracy of 95%
+* validation set accuracy of 94%
+* test set accuracy of 88%
+
+(I trained the model obtaining better accuracy but due to bug into tensorflow, sometimes the softmax prob were negative. I tried to update tensorflow but I still get the same error. With the previous value of the hyperparameters I had always 
+positive values for the softamx probs.)
 
 Using the experience I got from the LeNet lab I used the same model to implement the cnn. I chosed such a model since I 
 had some familiarities with it and also its performace are actually good. Moreover, since I am facing an image recognition
