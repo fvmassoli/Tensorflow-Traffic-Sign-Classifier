@@ -179,11 +179,12 @@ Here are the results of the prediction:
 | roundabout mandatory			|  End of no passing      							|
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. Even though such a number seems to compare favorably to the accuracy on the test set of 88% I would not say any final word on such a result. This is 
-mainly due to two reasons:
+mainly due to the following reason:
 
-1) we are not evaluating the error on the accuracy i.e. we don't know if the two numbers are really compatible within the errors;
+the cnn has been trained and tested using thousands of samples menaning that the error on its accuracy is quite small. Different is the case of the test on the 5 new traffic signals. Wihout knowing any other error on other parameters we can say that the error 
+on the accuracy of the 5 new signals has a "step" of 20% since each signal coorectly recognized can give a contribution of +/- 20% to the total
+accuracy. Having a such huge error I would say that the new sample is not statistically significant when compared to the ones used during the cnn training and validation.
 
-2) in my opinion, a 5 images dataset is not really statistically relevant when compared with the other used to train and test the cnn.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
