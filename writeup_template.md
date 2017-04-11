@@ -140,9 +140,6 @@ My final model results were:
 * validation set accuracy of 94%
 * test set accuracy of 88%
 
-(I trained the model obtaining better accuracy but due to bug into tensorflow, sometimes the softmax prob were negative. I tried to update tensorflow but I still get the same error. With the previous value of the hyperparameters I had always 
-positive values for the softamx probs.)
-
 Using the experience I got from the LeNet lab I used the same model to implement the cnn. I chose such a model since I 
 had some familiarities with it and since its performace is actually good. Moreover, since I am facing an image recognition
 problem a cnn is much more efficinet than a simple neural net.
@@ -206,11 +203,15 @@ The following images show the top 5 softmax probabilities for each image
 
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_1.png " ") 
 
+
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_2.png " ") 
+
 
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_3.png " ") 
 
+
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_4.png " ") 
+
 
 ![alt text](https://github.com/fvmassoli/fvmassoli-CarND-Traffic-Sign-Classifier-Project-2/blob/master/softmax_fig_5.png " ") 
 
